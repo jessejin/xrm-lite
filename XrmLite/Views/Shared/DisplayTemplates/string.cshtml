@@ -1,0 +1,11 @@
+﻿@model string
+@{
+    Layout = "~/Views/Shared/DisplayTemplates/_Layout.cshtml";
+}
+
+
+@Html.LabelFor( x=>x , new { @class = "control-label col-sm-2" })
+
+<div class="col-sm-3 xrm-display">
+    @Model
+</div>

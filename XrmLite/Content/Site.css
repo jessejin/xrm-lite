@@ -1,0 +1,78 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+
+.table {
+    border: 1px solid #dddddd;
+}
+
+.grid-header {
+    background-color: #3276b1;
+}
+
+
+.grid-sort-arrow,
+.grid-header-title a, 
+.grid-header-title a:hover, 
+.grid-header-title a:focus {
+    color: white;
+}
+
+.form-group {
+    border-bottom: 2px solid lightgray;
+    padding-bottom: 3px;
+}
+
+.xrm-header {
+    margin-bottom: 0px;
+    border-bottom: 2px solid lightgray;
+}
+
+.xrm-header-label {
+    padding-top: 7px;
+    font-weight: bold;
+}
+
+.xrm-divider {
+    background-color: #3276b1;
+    padding: 5px 5px 5px 15px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+.xrm-detail {
+    border-bottom: 2px solid lightgray;
+    padding-bottom: 10px;
+}
+
+.xrm-display {
+    padding: 7px 7px 7px 28px;
+}
+
+.well {
+    padding: 10px 15px 10px 15px;
+}
