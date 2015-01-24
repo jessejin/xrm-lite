@@ -6,7 +6,13 @@ Built on ASP.NET MVC, Bootstrap, JQuery, Kendo UI Core
 
 [Demo Site](http://xrmlite.azurewebsites.net/)
 
-## Installation
+## Build/Installation
+
+1.Download project as Zip or use cmd 'git clone https://github.com/jessejin/xrm-lite.git'
+2.Open Solution using Visual Studio 2013
+3.'Restore' Nuget Packages
+4.Run cmd in Package Manager Console 'Update-Package -reinstall'
+
 
 Deploy in Azure free website
 
