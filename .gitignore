@@ -188,9 +188,9 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 
-#Xrm Lite Related
-*/PublishProfiles/*
-*/_bin_deployableAssemblies/*
+# Xrm Lite Related
+Xrmlite/Properties/PublishProfiles/*
+Xrmlite/_bin_deployableAssemblies/*
 XrmLite/Content/*
 !XrmLite/Content/Site.css
 XrmLite/fonts/*
