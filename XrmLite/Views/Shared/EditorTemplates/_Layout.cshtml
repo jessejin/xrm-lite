@@ -1,12 +1,8 @@
 ﻿@*
-
-Layout template shared by all editor templates (except EditorSection.cs). 
-
-This can be used to add any application-specific surrounding HTML. 
-
-Note: EditorSection.cshtml and EditorExtensions methods provide a mechanism 
-for displaying input elements with surrounding HTML and label and validation
-elements
-
+Layout template shared by all editor templates
 *@
-@RenderBody()
+@Html.LabelFor(x => x, new { @class = "control-label col-sm-2" })
+<div class="col-sm-3">
+    @RenderBody()
+    @Html.ValidationMessageFor(x => x)
+</div>

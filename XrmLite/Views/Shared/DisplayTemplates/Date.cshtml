@@ -1,0 +1,5 @@
+﻿@model DateTime?
+@{
+    Layout = "_Layout.cshtml";
+}
+@(Model.HasValue? Model.Value.ToShortDateString(): null)

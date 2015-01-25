@@ -1,0 +1,6 @@
+﻿@model DateTime?
+@{
+    Layout = "_Layout.cshtml";
+}
+@Html.TextBoxFor(x => x, new { @class = "form-control", data_role = "kendo.ui.DatePicker" })
+<a href="javascript:void(0)" onclick="$('#@ViewData.TemplateInfo.GetFullHtmlFieldId("")').val('@DateTime.Today.ToShortDateString()')">[@DateTime.Today.ToShortDateString()]</a>

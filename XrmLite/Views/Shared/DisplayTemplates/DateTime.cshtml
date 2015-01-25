@@ -1,11 +1,5 @@
 ﻿@model DateTime?
 @{
-    Layout = "~/Views/Shared/DisplayTemplates/_Layout.cshtml";
+    Layout = "_Layout.cshtml";
 }
-
-
-@Html.LabelFor( x=>x , new { @class = "control-label col-sm-2" })
-
-<div class="col-sm-3 xrm-display">
-    @(Model.HasValue? Model.Value.ToShortDateString(): null)
-</div>
+@(Model.HasValue? Model.Value.ToString(): null)

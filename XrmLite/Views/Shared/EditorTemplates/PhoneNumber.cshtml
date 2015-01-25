@@ -1,0 +1,5 @@
+﻿@model string
+@{
+    Layout = "_Layout.cshtml";
+}
+@Html.TextBoxFor(x => x, new { @class = "form-control", type = "tel", data_role = "kendo.ui.MaskedTextBox", data_mask = "(000) 000-0000" })

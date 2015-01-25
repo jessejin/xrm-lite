@@ -17,10 +17,13 @@ namespace XrmLite.Models
         [Display(Name = "Company")]
         public string Company { get; set; }
         [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Display(Name = "Phone")]
+        [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
         [Display(Name = "Date Of Birth")]
+        [DataType(DataType.Date)]
         public System.DateTime? DateOfBirth { get; set; }
         [Display(Name = "Created Date")]
         public System.DateTime CreatedDate { get; set; }

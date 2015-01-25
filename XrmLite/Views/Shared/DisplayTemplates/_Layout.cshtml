@@ -1,11 +1,8 @@
 ﻿@*
-
-Layout template shared by all display templates (except DisplaySection.cs). 
-
-This can be used to add any application-specific surrounding HTML. 
-
-Note: DisplaySection.cshtml and DisplayExtensions methods provide a mechanism 
-for displaying values with surrounding HTML and label
-
+Layout template shared by all display templates
 *@
-@RenderBody()
+
+@Html.LabelFor(x => x, new { @class = "control-label col-sm-2" })
+<div class="col-sm-3 xrm-display">
+    @RenderBody()
+</div>

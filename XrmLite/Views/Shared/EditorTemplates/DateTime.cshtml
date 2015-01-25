@@ -1,12 +1,5 @@
 ﻿@model DateTime?
 @{
-    Layout = "~/Views/Shared/EditorTemplates/_Layout.cshtml";
+    Layout = "_Layout.cshtml";
 }
-
-
-@Html.LabelFor( x=>x , new { @class = "control-label col-sm-2" })
-
-<div class="col-sm-3">
-    @Html.TextBoxFor(x => x, new { @class = "form-control", data_role="datepicker" })
-    @Html.ValidationMessageFor(x => x)
-</div>
+@Html.TextBoxFor(x => x, new { @class = "form-control", data_role="kendo.ui.DateTimePicker" })
