@@ -32,6 +32,12 @@ namespace XrmLite.Models
             }
         }
 
+        public BaseModel()
+        {
+            CreatedBy = "System";
+            CreatedDate = DateTime.Now;
+        }
+
     }
     
     

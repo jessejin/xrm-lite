@@ -9,77 +9,75 @@ namespace XrmLite.Controllers
 {
     public class BaseController : Controller
     {
+        public Type ModelType;
+        private DatabaseContext _DB;
+        private DatabaseContext DB
+        {
+            get
+            {
+                if (_DB == null)
+                {
+                    _DB = new DatabaseContext();
+                    return _DB;
+                }
+                else return _DB;
+            }
+        }
 
-        DatabaseContext DB = new DatabaseContext();
-
+        public BaseController(Type type)
+        {
+            ModelType = type;
+        }
 
         public ActionResult Index()
         {
-            return View(DB.Contacts.OrderBy(x=>x.Id));
+            return View(DB.GetDBSet(ModelType));
         }
 
         public ActionResult Read(int id)
         {
-            Contact c = DB.Contacts.FirstOrDefault(x => x.Id == id);
-            return View(c);
+            return View(DB.GetDBSet(ModelType).Find(id));
         }
 
 
         public ActionResult Edit(int id)
         {
-            Contact c = DB.Contacts.FirstOrDefault(x => x.Id == id);
-
-            return View(c);
+            return View(DB.GetDBSet(ModelType).Find(id));
         }
 
         [HttpPost]
         public ActionResult Edit(int id, FormCollection form)
         {
-            Contact c = DB.Contacts.FirstOrDefault(x => x.Id == id);
-
-            if (ModelState.IsValid && TryUpdateModel(c, form))
+            dynamic model = DB.GetDBSet(ModelType).Find(id);
+            if (ModelState.IsValid && TryUpdateModel(model, form))
             {
                 DB.SaveChanges();
-                return RedirectToAction("Read", new { id = c.Id });
+                return RedirectToAction("Read", new { id = model.Id });
             }
-            return View(c);
+            return View(model);
         }
 
         public ActionResult Create()
         {
-            return View();
+            dynamic model = Activator.CreateInstance(ModelType);
+            return View(model);
         }
 
         [HttpPost]
         public ActionResult Create(FormCollection form)
         {
-            Contact c = new Models.Contact();
-            TryUpdateModel(c, form);
+            dynamic model = Activator.CreateInstance(ModelType);
+            TryUpdateModel(model, form);
 
             if (ModelState.IsValid)
             {
-                c.CreatedDate = DateTime.Now;
-                c.CreatedBy = User.Identity.Name;
-                DB.Contacts.Add(c);
+                DB.GetDBSet(ModelType).Add(model);
                 DB.SaveChanges();
-                return RedirectToAction("Read", new { id = c.Id });
+                return RedirectToAction("Read", new { id = model.Id });
             }
-            return View(c);
+            return View(model);
         }
 
 
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
