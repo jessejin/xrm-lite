@@ -7,7 +7,7 @@ using XrmLite.Models;
 
 namespace XrmLite.Controllers
 {
-    public class HomeController : Controller
+    public class BaseController : Controller
     {
 
         DatabaseContext DB = new DatabaseContext();
@@ -47,8 +47,7 @@ namespace XrmLite.Controllers
 
         public ActionResult Create()
         {
-            Contact c = new Models.Contact();
-            return View(c);
+            return View();
         }
 
         [HttpPost]

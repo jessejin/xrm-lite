@@ -1,6 +1,6 @@
-﻿@model Contact
+﻿@model BaseModel
 @{
-    ViewBag.Title = "Create Contact";
+    ViewBag.Title = "Create " + Model.ModelDisplayName;
 }
 
 <br />
@@ -8,10 +8,10 @@
 <div class="well">
     <form class="form-horizontal" method="post">
         <div class="form-group xrm-header">
-            <div class="col-sm-2 xrm-header-label">Create Contact</div>
+            <div class="col-sm-2 xrm-header-label">Create @Model.ModelDisplayName</div>
             <div class="col-sm-2">
                 <button type="submit" class="btn btn-primary">Save</button>
-                <a class="btn btn-primary" href="/Home">Cancel</a>
+                <a class="btn btn-primary" href="/@Html.Controller()">Cancel</a>
             </div>
         </div>
 
