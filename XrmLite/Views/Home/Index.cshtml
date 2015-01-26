@@ -16,6 +16,8 @@
         columns.Add(x => x.Id).Encoded(false)
                     .Sanitized(false)
                     .RenderValueAs(x => Html.ActionLink(x.Id.ToString(), "Read", new { id = x.Id }));
+        columns.Add(x => x.Company);
+        columns.Add(x => x.Title);
         columns.Add(x => x.FirstName);
         columns.Add(x => x.LastName);
         columns.Add(x => x.DateOfBirth).Format("{0:MM/dd/yyyy}");

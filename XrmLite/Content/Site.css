@@ -43,7 +43,8 @@ textarea {
 
 .form-group {
     border-bottom: 2px solid lightgray;
-    padding-bottom: 3px;
+
+    margin-bottom: 5px;
 }
 
 .xrm-header {
@@ -66,7 +67,7 @@ textarea {
 
 .xrm-detail {
     border-bottom: 2px solid lightgray;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .xrm-display {

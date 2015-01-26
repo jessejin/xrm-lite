@@ -16,6 +16,11 @@ namespace XrmLite.Models
         public string LastName { get; set; }
         [Display(Name = "Company")]
         public string Company { get; set; }
+        
+        [Display(Name="Title")]
+        public string Title { get; set; }
+
+
         [Display(Name = "Email")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
