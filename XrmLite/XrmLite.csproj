@@ -134,6 +134,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\PickListValueController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -146,6 +147,14 @@
     <Compile Include="Migrations\201501252053090_AddContactTitle.cs" />
     <Compile Include="Migrations\201501252053090_AddContactTitle.Designer.cs">
       <DependentUpon>201501252053090_AddContactTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501270414226_Add ContactType.cs" />
+    <Compile Include="Migrations\201501270414226_Add ContactType.Designer.cs">
+      <DependentUpon>201501270414226_Add ContactType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501270454200_AddPickListValue.cs" />
+    <Compile Include="Migrations\201501270454200_AddPickListValue.Designer.cs">
+      <DependentUpon>201501270454200_AddPickListValue.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
@@ -194,6 +203,10 @@
     <Content Include="Views\Shared\EditorTemplates\PhoneNumber.cshtml" />
     <Content Include="Views\Home\EditorTemplates\Contact.cshtml" />
     <Content Include="Views\Home\DisplayTemplates\Contact.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\PickList.cshtml" />
+    <Content Include="Views\PickListValue\DisplayTemplates\PickListValue.cshtml" />
+    <Content Include="Views\PickListValue\EditorTemplates\PickListValue.cshtml" />
+    <Content Include="Views\PickListValue\Index.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -231,8 +244,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Index.cshtml" />
     <Content Include="Views\Shared\Create.cshtml" />
     <Content Include="Views\Shared\Edit.cshtml" />
@@ -253,6 +265,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201501252053090_AddContactTitle.resx">
       <DependentUpon>201501252053090_AddContactTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501270414226_Add ContactType.resx">
+      <DependentUpon>201501270414226_Add ContactType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501270454200_AddPickListValue.resx">
+      <DependentUpon>201501270454200_AddPickListValue.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

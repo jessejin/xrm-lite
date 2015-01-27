@@ -10,6 +10,7 @@ namespace XrmLite.Controllers
     public class BaseController : Controller
     {
         public Type ModelType;
+
         private DatabaseContext _DB;
         private DatabaseContext DB
         {
@@ -31,24 +32,24 @@ namespace XrmLite.Controllers
 
         public ActionResult Index()
         {
-            return View(DB.GetDBSet(ModelType));
+            return View(DB.Set(ModelType));
         }
 
         public ActionResult Read(int id)
         {
-            return View(DB.GetDBSet(ModelType).Find(id));
+            return View(DB.Set(ModelType).Find(id));
         }
 
 
         public ActionResult Edit(int id)
         {
-            return View(DB.GetDBSet(ModelType).Find(id));
+            return View(DB.Set(ModelType).Find(id));
         }
 
         [HttpPost]
         public ActionResult Edit(int id, FormCollection form)
         {
-            dynamic model = DB.GetDBSet(ModelType).Find(id);
+            dynamic model = DB.Set(ModelType).Find(id);
             if (ModelState.IsValid && TryUpdateModel(model, form))
             {
                 DB.SaveChanges();
@@ -71,7 +72,7 @@ namespace XrmLite.Controllers
 
             if (ModelState.IsValid)
             {
-                DB.GetDBSet(ModelType).Add(model);
+                DB.Set(ModelType).Add(model);
                 DB.SaveChanges();
                 return RedirectToAction("Read", new { id = model.Id });
             }

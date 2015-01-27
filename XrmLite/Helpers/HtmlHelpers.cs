@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using XrmLite.Controllers;
+using XrmLite.Models;
 
 namespace XrmLite.Helpers
 {
@@ -38,6 +40,18 @@ namespace XrmLite.Helpers
                 return (string)routeValues["action"];
 
             return string.Empty;
+        }
+
+        public static SelectList GetPickList(this HtmlHelper htmlHelper, string fieldPrefix, string selectedValue)
+        {
+            var modelType = ((BaseController)htmlHelper.ViewContext.Controller).ModelType;
+
+            DatabaseContext DB = new DatabaseContext();
+
+            PickListValue pickListValue = DB.PickListValues.FirstOrDefault(x => x.ModelType == modelType.Name && x.FieldName == fieldPrefix);
+            string[] valueList = (pickListValue == null ? new string[0] { } : pickListValue.Values.Split(';'));
+
+            return new SelectList(valueList, selectedValue);
         }
 
     }

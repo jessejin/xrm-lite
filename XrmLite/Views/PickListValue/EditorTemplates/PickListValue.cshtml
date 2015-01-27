@@ -1,0 +1,17 @@
+﻿@model PickListValue
+
+
+<div class="form-group xrm-divider">
+    Pick List Value
+</div>
+
+
+<div class="form-group xrm-detail">
+    @Html.EditorFor(x => x.ModelType)
+    @Html.EditorFor(x => x.FieldName)
+</div>
+
+
+<div class="form-group xrm-detail">
+    @Html.EditorFor(x => x.Values)
+</div>

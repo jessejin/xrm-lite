@@ -1,0 +1,6 @@
+﻿@model string
+@{
+    Layout = "_Layout.cshtml";
+}
+@Html.DropDownListFor(x => x, Html.GetPickList(ViewData.TemplateInfo.HtmlFieldPrefix, Model), "---- Please Select ----" ,new { @class = "form-control" })
+
