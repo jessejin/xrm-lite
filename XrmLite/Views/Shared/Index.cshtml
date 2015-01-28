@@ -1,27 +1,12 @@
-﻿@model IEnumerable<BaseModel>
+﻿@model IndexViewModel
 @{
-    ViewBag.Title =  Html.Controller();
+    ViewBag.Title = Model.ModelDisplayName;
 }
 
-<h3>@Html.Controller()</h3>
+<h3>@Model.ModelDisplayName</h3>
 
 
 
-<h3>@Html.ActionLink("Create New " + Html.Controller(), "Create", null, new {@class= "btn btn-primary"})</h3>
+<h3>@Html.ActionLink("Create New " + Model.ModelDisplayName, "Create", null, new { @class = "btn btn-primary" })</h3>
 
-
-
-
-@(Html.Grid(Model.OrderBy(x => x.Id)).AutoGenerateColumns()
-    .Columns(columns =>
-    {
-
-        columns.Insert(0, x => x.Id).Encoded(false)
-                    .Sanitized(false)
-                    .RenderValueAs(x => Html.ActionLink(x.Id.ToString(), "Read", new { id = x.Id }));
-    })
-    .WithPaging(20)
-    .Sortable()
-    .Filterable()
-    .WithMultipleFilters()
-)
+@Html.Partial("_List", Model.Items)

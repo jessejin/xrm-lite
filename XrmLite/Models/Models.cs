@@ -10,25 +10,20 @@ namespace XrmLite.Models
 
     public class BaseModel
     {
-        [Key]
-        [Display(Name = "Id", AutoGenerateField=false)]
+        [Key]        
         [NotMappedColumn]
         public int Id { get; set; }
 
         [Display(Name = "Created Date")]
-        [NotMappedColumn]
         public System.DateTime CreatedDate { get; set; }
 
         [Display(Name = "Created By")]
-        [NotMappedColumn]
         public string CreatedBy { get; set; }
 
         [Display(Name = "Last Modified Date")]
-        [NotMappedColumn]
         public System.DateTime? LastModifiedDate { get; set; }
 
         [Display(Name = "Last Modified By")]
-        [NotMappedColumn]
         public string LastModifiedBy { get; set; }
 
         public virtual string ModelDisplayName
@@ -66,7 +61,6 @@ namespace XrmLite.Models
         [UIHint("PickList")]
         public string ContactType { get; set; }
 
-
         [Display( Name="First Name")]
         public string FirstName{ get; set; }
 
@@ -90,10 +84,7 @@ namespace XrmLite.Models
 
         [Display(Name = "Date Of Birth")]
         [DataType(DataType.Date)]
-        [GridColumn(Title = "DOB", Format = "{0:MM/dd/yyyy}")]
         public System.DateTime? DateOfBirth { get; set; }
-
-
 
     }
 

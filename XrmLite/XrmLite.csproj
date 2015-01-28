@@ -159,6 +159,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\Models.cs" />
+    <Compile Include="Models\ViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -206,7 +207,7 @@
     <Content Include="Views\Shared\EditorTemplates\PickList.cshtml" />
     <Content Include="Views\PickListValue\DisplayTemplates\PickListValue.cshtml" />
     <Content Include="Views\PickListValue\EditorTemplates\PickListValue.cshtml" />
-    <Content Include="Views\PickListValue\Index.cshtml" />
+    <Content Include="Views\PickListValue\_List.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -244,7 +245,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_List.cshtml" />
     <Content Include="Views\Shared\Index.cshtml" />
     <Content Include="Views\Shared\Create.cshtml" />
     <Content Include="Views\Shared\Edit.cshtml" />

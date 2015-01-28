@@ -30,9 +30,15 @@ namespace XrmLite.Controllers
             ModelType = type;
         }
 
+
+
         public ActionResult Index()
         {
-            return View(DB.Set(ModelType));
+            IndexViewModel model = new IndexViewModel();
+            model.Items = DB.Set(ModelType);
+            model.ModelDisplayName = ((BaseModel)Activator.CreateInstance(ModelType)).ModelDisplayName;
+
+            return View(model);
         }
 
         public ActionResult Read(int id)

@@ -42,6 +42,12 @@ namespace XrmLite.Helpers
             return string.Empty;
         }
 
+
+        public static Type ModelType(this HtmlHelper htmlHelper)
+        {            
+            return ((BaseController)htmlHelper.ViewContext.Controller).ModelType;
+        }
+
         public static SelectList GetPickList(this HtmlHelper htmlHelper, string fieldPrefix, string selectedValue)
         {
             var modelType = ((BaseController)htmlHelper.ViewContext.Controller).ModelType;
