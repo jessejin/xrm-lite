@@ -86,6 +86,12 @@ namespace XrmLite.Models
         [DataType(DataType.Date)]
         public System.DateTime? DateOfBirth { get; set; }
 
+        [Display(Name = "Comment")]
+        [DataType(DataType.MultilineText)]
+        public string Comment { get; set; }
+
+
+
     }
 
 
@@ -102,6 +108,8 @@ namespace XrmLite.Models
 
         public string ModelType { get; set; }        
         public string FieldName  { get; set; }
+
+        [DataType(DataType.MultilineText)]
         public string Values { get; set; }
     }
 }

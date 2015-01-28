@@ -55,7 +55,7 @@ namespace XrmLite.Helpers
             DatabaseContext DB = new DatabaseContext();
 
             PickListValue pickListValue = DB.PickListValues.FirstOrDefault(x => x.ModelType == modelType.Name && x.FieldName == fieldPrefix);
-            string[] valueList = (pickListValue == null ? new string[0] { } : pickListValue.Values.Split(';'));
+            string[] valueList = (pickListValue == null ? new string[0] { } : pickListValue.Values.Split(new char[]{'\r','\n'}, StringSplitOptions.RemoveEmptyEntries));
 
             return new SelectList(valueList, selectedValue);
         }
