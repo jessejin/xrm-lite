@@ -1,0 +1,17 @@
+﻿@model string
+@{
+    Layout = "_Layout.cshtml";
+}
+@Html.HiddenFor(x=>x)
+@Html.DropDownList("KendoMultiSelect", Html.GetMultiPickList(ViewData.TemplateInfo.HtmlFieldPrefix, Model)
+    ,new { @class = "form-control", data_role= "kendo.ui.MultiSelect",  multiple = "multiple" })
+
+
+<script>
+    $(document).ready(function () {
+        var multiselect = $("#@ViewData.TemplateInfo.HtmlFieldPrefix" + "_KendoMultiSelect").data("kendoMultiSelect");
+        multiselect.bind("change", function () {
+            $("#@ViewData.TemplateInfo.HtmlFieldPrefix").val(this.value());
+        });
+    });
+</script>

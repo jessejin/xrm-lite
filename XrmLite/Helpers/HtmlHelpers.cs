@@ -48,16 +48,28 @@ namespace XrmLite.Helpers
             return ((BaseController)htmlHelper.ViewContext.Controller).ModelType;
         }
 
+
+        public static string[] GetPickListValues(string modelType, string fieldPrefix)
+        {
+            DatabaseContext DB = new DatabaseContext();
+            PickListValue pickListValue = DB.PickListValues.FirstOrDefault(x => x.ModelType == modelType && x.FieldName == fieldPrefix);
+            string[] valueList = (pickListValue == null ? new string[0] { } : pickListValue.Values.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries));
+            return valueList;
+        }
+
         public static SelectList GetPickList(this HtmlHelper htmlHelper, string fieldPrefix, string selectedValue)
         {
             var modelType = ((BaseController)htmlHelper.ViewContext.Controller).ModelType;
-
-            DatabaseContext DB = new DatabaseContext();
-
-            PickListValue pickListValue = DB.PickListValues.FirstOrDefault(x => x.ModelType == modelType.Name && x.FieldName == fieldPrefix);
-            string[] valueList = (pickListValue == null ? new string[0] { } : pickListValue.Values.Split(new char[]{'\r','\n'}, StringSplitOptions.RemoveEmptyEntries));
-
+            string[] valueList = GetPickListValues(modelType.Name, fieldPrefix);
             return new SelectList(valueList, selectedValue);
+        }
+
+        public static MultiSelectList GetMultiPickList(this HtmlHelper htmlHelper, string fieldPrefix, string selectedValue)
+        {
+            var modelType = ((BaseController)htmlHelper.ViewContext.Controller).ModelType;
+            string[] selectedValues = (selectedValue == null ? null : selectedValue.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
+            string[] valueList = GetPickListValues(modelType.Name, fieldPrefix);
+            return new MultiSelectList(valueList, selectedValues);
         }
 
     }

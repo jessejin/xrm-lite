@@ -58,8 +58,9 @@ namespace XrmLite.Models
         }
 
         [Display(Name = "Contact Type")]
-        [UIHint("PickList")]
+        [UIHint("MultiPickList")]
         public string ContactType { get; set; }
+
 
         [Display( Name="First Name")]
         public string FirstName{ get; set; }
@@ -89,8 +90,6 @@ namespace XrmLite.Models
         [Display(Name = "Comment")]
         [DataType(DataType.MultilineText)]
         public string Comment { get; set; }
-
-
 
     }
 
