@@ -61,6 +61,10 @@ namespace XrmLite.Models
         [UIHint("MultiPickList")]
         public string ContactType { get; set; }
 
+        [Display(Name = "Status")]
+        [UIHint("ComboBox")]
+        public string Status { get; set; }
+
 
         [Display( Name="First Name")]
         public string FirstName{ get; set; }

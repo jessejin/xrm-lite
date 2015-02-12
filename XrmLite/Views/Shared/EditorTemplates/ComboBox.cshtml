@@ -1,0 +1,6 @@
+﻿@model string
+@{
+    Layout = "_Layout.cshtml";
+}
+@Html.DropDownListFor(x => x, Html.GetPickList(ViewData.TemplateInfo.HtmlFieldPrefix, Model) , "",  new { @class = "form-control", data_role = "kendo.ui.ComboBox" })
+

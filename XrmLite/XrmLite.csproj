@@ -160,6 +160,10 @@
     <Compile Include="Migrations\201501280510284_AddComment.Designer.cs">
       <DependentUpon>201501280510284_AddComment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502120710524_ContactStatus.cs" />
+    <Compile Include="Migrations\201502120710524_ContactStatus.Designer.cs">
+      <DependentUpon>201502120710524_ContactStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\Models.cs" />
@@ -215,6 +219,7 @@
     <Content Include="Views\Shared\EditorTemplates\MultilineText.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MultilineText.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\MultiPickList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ComboBox.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -282,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201501280510284_AddComment.resx">
       <DependentUpon>201501280510284_AddComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502120710524_ContactStatus.resx">
+      <DependentUpon>201502120710524_ContactStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
