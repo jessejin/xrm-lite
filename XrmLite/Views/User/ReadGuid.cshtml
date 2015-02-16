@@ -1,0 +1,34 @@
+﻿
+@model XrmUser
+@{
+    
+    string controllerName = ViewContext.RouteData.Values["Controller"].ToString();
+    ViewBag.Title = Model.ModelDisplayName;
+}
+
+<br />
+
+<div class="well" >
+    <form class="form-horizontal" >
+
+        <div class="form-group xrm-header" >
+            <div class="col-sm-2 xrm-header-label">@Model.ModelDisplayName</div>
+            <div class="col-sm-2">
+                <a class="btn btn-primary" href="/@Html.Controller()/EditGuid/@Model.Id" >Edit</a>
+                <a class="btn btn-primary" href="/@Html.Controller()">Go Back</a>
+            </div>
+        </div>
+
+        @Html.DisplayForModel()
+
+        <div class="form-group xrm-divider">System Info</div>
+        <div class="form-group xrm-detail">
+            @Html.DisplayFor(x => x.CreatedBy)
+            @Html.DisplayFor(x => x.CreatedDate)
+        </div>
+        <div class="form-group xrm-detail">
+            @Html.DisplayFor(x => x.LastModifiedBy)
+            @Html.DisplayFor(x => x.LastModifiedDate)
+        </div>
+    </form>
+</div>

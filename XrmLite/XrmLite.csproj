@@ -60,6 +60,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Grid.Mvc.3.0.0\lib\net40\GridMvc.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -134,6 +140,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\PickListValueController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -163,6 +170,10 @@
     <Compile Include="Migrations\201502120710524_ContactStatus.cs" />
     <Compile Include="Migrations\201502120710524_ContactStatus.Designer.cs">
       <DependentUpon>201502120710524_ContactStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502150456329_User.cs" />
+    <Compile Include="Migrations\201502150456329_User.Designer.cs">
+      <DependentUpon>201502150456329_User.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
@@ -220,6 +231,14 @@
     <Content Include="Views\Shared\DisplayTemplates\MultilineText.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\MultiPickList.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ComboBox.cshtml" />
+    <Content Include="Views\User\_List.cshtml" />
+    <Content Include="Views\User\DisplayTemplates\XrmUser.cshtml" />
+    <Content Include="Views\User\EditorTemplates\XrmUser.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\User\ReadGuid.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Boolean.cshtml" />
+    <Content Include="Views\User\EditGuid.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -290,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502120710524_ContactStatus.resx">
       <DependentUpon>201502120710524_ContactStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502150456329_User.resx">
+      <DependentUpon>201502150456329_User.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

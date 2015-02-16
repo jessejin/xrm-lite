@@ -1,0 +1,36 @@
+﻿@model RegisterViewModel
+@{
+    ViewBag.Title = "Create User";
+}
+
+<br />
+
+<div class="well">
+    <form class="form-horizontal" method="post">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+
+        <div class="form-group xrm-header">
+            <div class="col-sm-2 xrm-header-label">Create User</div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a class="btn btn-primary" href="/@Html.Controller()">Cancel</a>
+            </div>
+        </div>
+
+        <div class="form-group xrm-divider">
+            User Detail
+        </div>
+
+        <div class="form-group xrm-detail">
+            @Html.EditorFor(x => x.UserName)
+        </div>
+
+
+        <div class="form-group xrm-detail">
+            @Html.EditorFor(x => x.Password)
+            @Html.EditorFor(x => x.ConfirmPassword)
+        </div>
+    </form>
+</div>
+

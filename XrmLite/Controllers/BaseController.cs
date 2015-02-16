@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +14,7 @@ namespace XrmLite.Controllers
         public Type ModelType;
 
         private DatabaseContext _DB;
-        private DatabaseContext DB
+        public DatabaseContext DB
         {
             get
             {
@@ -25,53 +27,54 @@ namespace XrmLite.Controllers
             }
         }
 
+
+        private UserManager<XrmUser> _UserManager;
+        public UserManager<XrmUser> UserManager
+        {
+            get
+            {
+                if (_UserManager == null)
+                {
+                    _UserManager = new UserManager<XrmUser>(new UserStore<XrmUser>(DB));
+                    return _UserManager;
+                }
+                else return _UserManager;
+            }
+        }
+
         public BaseController(Type type)
         {
             ModelType = type;
         }
 
 
-
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             IndexViewModel model = new IndexViewModel();
             model.Items = DB.Set(ModelType);
-            model.ModelDisplayName = ((BaseModel)Activator.CreateInstance(ModelType)).ModelDisplayName;
+            model.ModelDisplayName = ((dynamic)Activator.CreateInstance(ModelType)).ModelDisplayName;
 
             return View(model);
         }
 
-        public ActionResult Read(int id)
+        public virtual ActionResult Read(int id)
         {
             return View(DB.Set(ModelType).Find(id));
         }
 
-
-        public ActionResult Edit(int id)
+        public virtual ActionResult ReadGuid(string id)
         {
             return View(DB.Set(ModelType).Find(id));
         }
 
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection form)
-        {
-            dynamic model = DB.Set(ModelType).Find(id);
-            if (ModelState.IsValid && TryUpdateModel(model, form))
-            {
-                DB.SaveChanges();
-                return RedirectToAction("Read", new { id = model.Id });
-            }
-            return View(model);
-        }
-
-        public ActionResult Create()
+        public virtual ActionResult Create()
         {
             dynamic model = Activator.CreateInstance(ModelType);
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Create(FormCollection form)
+        public virtual ActionResult Create(FormCollection form)
         {
             dynamic model = Activator.CreateInstance(ModelType);
             TryUpdateModel(model, form);
@@ -85,6 +88,40 @@ namespace XrmLite.Controllers
             return View(model);
         }
 
+        public virtual ActionResult Edit(int id)
+        {
+            return View(DB.Set(ModelType).Find(id));
+        }
+
+        [HttpPost]
+        public virtual ActionResult Edit(int id, FormCollection form)
+        {
+            dynamic model = DB.Set(ModelType).Find(id);
+            if (ModelState.IsValid && TryUpdateModel(model, form))
+            {
+                DB.SaveChanges();
+                return RedirectToAction("Read", new { id = model.Id });
+            }
+            return View(model);
+        }
+
+
+        public virtual ActionResult EditGuid(string id)
+        {
+            return View(DB.Set(ModelType).Find(id));
+        }
+
+        [HttpPost]
+        public virtual ActionResult EditGuid(string id, FormCollection form)
+        {
+            dynamic model = DB.Set(ModelType).Find(id);
+            if (ModelState.IsValid && TryUpdateModel(model, form))
+            {
+                DB.SaveChanges();
+                return RedirectToAction("ReadGuid", new { id = model.Id });
+            }
+            return View(model);
+        }
 
     }
 }

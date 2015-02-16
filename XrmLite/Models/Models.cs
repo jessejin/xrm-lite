@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using GridMvc.DataAnnotations;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace XrmLite.Models
 {
@@ -40,10 +41,6 @@ namespace XrmLite.Models
             CreatedDate = DateTime.Now;
         }
 
-    }
-    public class MyAttribute : Attribute
-    {
-        //...
     }
 
     
@@ -114,5 +111,36 @@ namespace XrmLite.Models
 
         [DataType(DataType.MultilineText)]
         public string Values { get; set; }
+    }
+
+
+
+    public class XrmUser : IdentityUser
+    {
+        public string ModelDisplayName
+        {
+            get
+            {
+                return "User";
+            }
+        }
+
+        [Display(Name = "Created Date")]
+        public System.DateTime CreatedDate { get; set; }
+
+        [Display(Name = "Created By")]
+        public string CreatedBy { get; set; }
+
+        [Display(Name = "Last Modified Date")]
+        public System.DateTime? LastModifiedDate { get; set; }
+
+        [Display(Name = "Last Modified By")]
+        public string LastModifiedBy { get; set; }
+
+        public XrmUser()
+        {
+            CreatedBy = "System";
+            CreatedDate = DateTime.Now;
+        }
     }
 }
