@@ -115,6 +115,47 @@ namespace XrmLite.Models
 
 
 
+
+    public class XrmUserMetadata
+    {
+        [StringLength(50)]
+        [Display(Name = "User Name")]
+        public string UserName;
+
+
+        [StringLength(50)]
+        [Display(Name = "Phone Number")]
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber;
+
+        [Display(Name = "Phone Number Confirmed")]
+        public string PhoneNumberConfirmed;
+
+
+
+        [StringLength(50)]
+        [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
+        public string Email;
+
+        [Display(Name = "Email Confirmed")]
+        public string EmailConfirmed;
+
+        [Display(Name = "Two Factor Enabled")]
+        public string TwoFactorEnabled;
+
+        [Display(Name = "Access Failed Count")]
+        public string AccessFailedCount;
+
+        [Display(Name = "Lockout Enabled")]
+        public string LockoutEnabled;
+
+        [Display(Name = "Lockout End DateUtc")]
+        public string LockoutEndDateUtc;
+
+    }
+
+    [MetadataType(typeof(XrmUserMetadata))]
     public class XrmUser : IdentityUser
     {
         public string ModelDisplayName

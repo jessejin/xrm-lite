@@ -8,11 +8,27 @@
 
 <div class="form-group xrm-detail">
     @Html.DisplayFor(x => x.UserName)
-    @Html.DisplayFor(x => x.Email)
+    
 </div>
 
 
 <div class="form-group xrm-detail">
+    @Html.DisplayFor(x => x.Email)
+    @Html.DisplayFor(x => x.EmailConfirmed)
+</div>
+
+<div class="form-group xrm-detail">
     @Html.DisplayFor(x => x.PhoneNumber)
+    @Html.DisplayFor(x => x.PhoneNumberConfirmed)
+</div>
+
+<div class="form-group xrm-detail">
+    @Html.DisplayFor(x => x.TwoFactorEnabled)
+    @Html.DisplayFor(x => x.AccessFailedCount)
+</div>
+
+<div class="form-group xrm-detail">
+    @Html.DisplayFor(x => x.LockoutEnabled)
+    @Html.DisplayFor(x => x.LockoutEndDateUtc)
 </div>
 

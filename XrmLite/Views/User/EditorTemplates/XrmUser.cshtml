@@ -1,16 +1,35 @@
 ﻿@model XrmUser
 
 
+
 <div class="form-group xrm-divider">
-    Contact Detail
+    User Detail
 </div>
+
 
 <div class="form-group xrm-detail">
     @Html.DisplayFor(x => x.UserName)
-    @Html.EditorFor(x => x.Email)
+
 </div>
 
 
 <div class="form-group xrm-detail">
-    @Html.EditorFor(x => x.PhoneNumber)
+    @Html.EditorFor(x => x.Email)
+    @Html.EditorFor(x => x.EmailConfirmed)
 </div>
+
+<div class="form-group xrm-detail">
+    @Html.EditorFor(x => x.PhoneNumber)
+    @Html.EditorFor(x => x.PhoneNumberConfirmed)
+</div>
+
+<div class="form-group xrm-detail">
+    @Html.EditorFor(x => x.TwoFactorEnabled)
+    @Html.DisplayFor(x => x.AccessFailedCount)
+</div>
+
+<div class="form-group xrm-detail">
+    @Html.DisplayFor(x => x.LockoutEnabled)
+    @Html.DisplayFor(x => x.LockoutEndDateUtc)
+</div>
+
