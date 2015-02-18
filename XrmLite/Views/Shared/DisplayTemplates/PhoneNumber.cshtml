@@ -1,6 +1,6 @@
 ﻿@model string
 @{
     Layout = "_Layout.cshtml";
-    string phoneDigitsOnly = System.Text.RegularExpressions.Regex.Replace(Model, "\\D",""); 
+    string phoneDigitsOnly = XrmHelpers.RemoveNonDigits(Model); 
 }
 <a href="tel:+1@(phoneDigitsOnly)">@Model</a>

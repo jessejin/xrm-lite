@@ -146,6 +146,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\XrmHelpers.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Migrations\201501241913054_InitialCreate.cs" />
     <Compile Include="Migrations\201501241913054_InitialCreate.Designer.cs">
@@ -174,6 +175,10 @@
     <Compile Include="Migrations\201502150456329_User.cs" />
     <Compile Include="Migrations\201502150456329_User.Designer.cs">
       <DependentUpon>201502150456329_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502180335426_AddRequired.cs" />
+    <Compile Include="Migrations\201502180335426_AddRequired.Designer.cs">
+      <DependentUpon>201502180335426_AddRequired.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
@@ -313,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502150456329_User.resx">
       <DependentUpon>201502150456329_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502180335426_AddRequired.resx">
+      <DependentUpon>201502180335426_AddRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

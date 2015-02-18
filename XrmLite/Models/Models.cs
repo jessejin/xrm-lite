@@ -62,7 +62,7 @@ namespace XrmLite.Models
         [UIHint("ComboBox")]
         public string Status { get; set; }
 
-
+        [Required]
         [Display( Name="First Name")]
         public string FirstName{ get; set; }
 
