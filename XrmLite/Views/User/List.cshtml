@@ -1,0 +1,12 @@
+﻿@model IEnumerable<XrmUser>
+
+@(Html.Grid(Model.OrderBy(x => x.Id))
+    .Columns(columns =>
+    {
+        columns.Add(x => x.UserName).Encoded(false)
+                    .Sanitized(false)
+                    .RenderValueAs(x => Html.ActionLink(x.UserName, "ReadGuid", new { id = x.Id }));
+        columns.Add(x => x.PhoneNumber);
+        columns.Add(x => x.Email);
+    })
+)

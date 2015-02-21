@@ -26,5 +26,6 @@ namespace XrmLite.Controllers
 
             return View();
         }
+
     }
 }

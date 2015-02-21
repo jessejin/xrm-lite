@@ -22,7 +22,8 @@ namespace XrmLite
 
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
             "~/Scripts/gridmvc.js",
-            "~/Scripts/bootstrap-datepicker.js"
+            "~/Scripts/bootstrap-datepicker.js",
+            "~/Scripts/XrmLite.js"
             ));
 
 

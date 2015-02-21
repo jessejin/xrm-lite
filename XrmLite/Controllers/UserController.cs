@@ -18,6 +18,13 @@ namespace XrmLite.Controllers
             return View();
         }
 
+
+        public ActionResult List()
+        {
+            return PartialView(DB.Users);
+        }
+
+
         //
         // POST: /Users/Create
         [HttpPost]
