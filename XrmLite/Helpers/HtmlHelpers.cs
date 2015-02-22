@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using XrmLite.Controllers;
 using XrmLite.Models;
+using System.Web.Mvc.Html;
 
 namespace XrmLite.Helpers
 {
@@ -46,6 +47,19 @@ namespace XrmLite.Helpers
         public static Type ModelType(this HtmlHelper htmlHelper)
         {            
             return ((BaseController)htmlHelper.ViewContext.Controller).ModelType;
+        }
+
+        public static BaseModel GetDBRecord(Type modelType, int id)
+        {
+            DatabaseContext DB = new DatabaseContext();            
+            return (BaseModel)DB.Set(modelType).Find(id);
+        }
+
+
+        public static MvcHtmlString XrmRecordLink(this HtmlHelper htmlHelper, Type modelType, int id)
+        {
+            BaseModel record = GetDBRecord(modelType, id);
+            return htmlHelper.ActionLink(record.DisplayName, "Read", record.Controller, new { id = id }, null);
         }
 
 

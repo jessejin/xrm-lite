@@ -140,6 +140,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\PickListValueController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -250,11 +251,13 @@
     <Content Include="Views\Shared\DisplayTemplates\Boolean.cshtml" />
     <Content Include="Views\User\EditGuid.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
-    <Content Include="Views\Home\TabStrip.cshtml" />
     <Content Include="Views\User\List.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Int32.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Lookup.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Lookup.cshtml" />
+    <Content Include="Views\Contact\_List.cshtml" />
+    <Content Include="Views\Contact\DisplayTemplates\Contact.cshtml" />
+    <Content Include="Views\Contact\EditorTemplates\Contact.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

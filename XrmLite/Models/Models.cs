@@ -35,6 +35,23 @@ namespace XrmLite.Models
                 return "BaseObject";
             }
         }
+        public virtual string DisplayName
+        {
+            get
+            {
+                return "Display Name not implemented";
+            }
+        }
+
+        public virtual string Controller
+        {
+            get
+            {
+                return "Controller not implemented";
+            }
+        }
+
+
 
         public BaseModel()
         {
@@ -54,6 +71,23 @@ namespace XrmLite.Models
                 return "Contact";
             }
         }
+
+        public override string Controller
+        {
+            get
+            {
+                return "Contact";
+            }
+        }
+
+        public override string DisplayName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
+
 
         [Display(Name = "Contact Type")]
         [UIHint("MultiPickList")]
@@ -93,9 +127,7 @@ namespace XrmLite.Models
         [DataType(DataType.MultilineText)]
         public string Comment { get; set; }
 
-
         public virtual ICollection<XrmUser> Users { get; set; }
-
 
     }
 
@@ -127,7 +159,6 @@ namespace XrmLite.Models
         [Display(Name = "User Name")]
         public string UserName;
 
-
         [StringLength(50)]
         [Display(Name = "Phone Number")]
         [DataType(DataType.PhoneNumber)]
@@ -135,8 +166,6 @@ namespace XrmLite.Models
 
         [Display(Name = "Phone Number Confirmed")]
         public string PhoneNumberConfirmed;
-
-
 
         [StringLength(50)]
         [Display(Name = "Email")]

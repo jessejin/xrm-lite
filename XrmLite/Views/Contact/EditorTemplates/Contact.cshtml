@@ -1,0 +1,34 @@
+﻿@model Contact
+
+
+<div class="form-group xrm-divider">
+    Contact Detail
+</div>
+
+
+<div class="form-group xrm-detail">
+    @Html.EditorFor(x => x.Company)
+    @Html.EditorFor(x => x.Title)
+</div>
+
+
+<div class="form-group xrm-detail">
+    @Html.EditorFor(x => x.FirstName)
+    @Html.EditorFor(x => x.LastName)
+</div>
+
+<div class="form-group xrm-detail">
+    @Html.EditorFor(x => x.Email)
+    @Html.EditorFor(x => x.Phone)
+</div>
+
+
+<div class="form-group xrm-detail">
+    @Html.EditorFor(x => x.DateOfBirth)
+    @Html.EditorFor(x => x.ContactType)
+</div>
+
+<div class="form-group xrm-detail">
+    @Html.EditorFor(x => x.Status)
+    @Html.EditorFor(x => x.Comment)
+</div>
