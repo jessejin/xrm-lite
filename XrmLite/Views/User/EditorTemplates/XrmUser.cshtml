@@ -9,7 +9,7 @@
 
 <div class="form-group xrm-detail">
     @Html.DisplayFor(x => x.UserName)
-
+    @Html.EditorFor(x => x.ContactId)
 </div>
 
 
@@ -22,6 +22,9 @@
     @Html.EditorFor(x => x.PhoneNumber)
     @Html.DisplayFor(x => x.PhoneNumberConfirmed)
 </div>
+
+
+
 
 <div class="form-group xrm-detail">
     @Html.EditorFor(x => x.TwoFactorEnabled)

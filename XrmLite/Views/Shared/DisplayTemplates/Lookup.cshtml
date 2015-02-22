@@ -1,0 +1,8 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+}
+
+
+@if (Model != null) {
+    @Html.ActionLink("Jesse", "Read", "Home", new { id = Model }, null)
+}

@@ -5,6 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using GridMvc.DataAnnotations;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace XrmLite.Models
 {
@@ -92,6 +93,10 @@ namespace XrmLite.Models
         [DataType(DataType.MultilineText)]
         public string Comment { get; set; }
 
+
+        public virtual ICollection<XrmUser> Users { get; set; }
+
+
     }
 
 
@@ -177,6 +182,13 @@ namespace XrmLite.Models
 
         [Display(Name = "Last Modified By")]
         public string LastModifiedBy { get; set; }
+
+        [Display(Name = "Contact")]
+        [UIHint("Lookup")]
+        public int? ContactId { get; set; }
+
+        [ForeignKey("ContactId")]
+        public virtual Contact UserContact { get; set; }
 
         public XrmUser()
         {

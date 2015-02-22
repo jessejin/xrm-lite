@@ -180,6 +180,10 @@
     <Compile Include="Migrations\201502180335426_AddRequired.Designer.cs">
       <DependentUpon>201502180335426_AddRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502220703424_AddUserContact.cs" />
+    <Compile Include="Migrations\201502220703424_AddUserContact.Designer.cs">
+      <DependentUpon>201502220703424_AddUserContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\Models.cs" />
@@ -248,6 +252,9 @@
     <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
     <Content Include="Views\Home\TabStrip.cshtml" />
     <Content Include="Views\User\List.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Int32.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Lookup.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Lookup.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -324,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502180335426_AddRequired.resx">
       <DependentUpon>201502180335426_AddRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502220703424_AddUserContact.resx">
+      <DependentUpon>201502220703424_AddUserContact.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
