@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using XrmLite.Controllers;
 using XrmLite.Models;
 using System.Web.Mvc.Html;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace XrmLite.Helpers
 {
@@ -56,10 +57,24 @@ namespace XrmLite.Helpers
         }
 
 
-        public static MvcHtmlString XrmRecordLink(this HtmlHelper htmlHelper, Type modelType, int id)
+        public static string GetXrmDisplayName(this HtmlHelper htmlHelper, Type modelType, int? id)
         {
+            if (id == null) return null;
+            BaseModel record = GetDBRecord(modelType, id.Value);
+            return record.DisplayName;
+        }
+
+        public static string GetXrmControllerName(this HtmlHelper htmlHelper, Type modelType)
+        {
+            return modelType.Name;
+        }
+
+
+        public static MvcHtmlString XrmRecordLink(this HtmlHelper htmlHelper, Type containerType, string fieldPrefix, int id)
+        {
+            Type modelType = htmlHelper.GetTypeForField(containerType, fieldPrefix);
             BaseModel record = GetDBRecord(modelType, id);
-            return htmlHelper.ActionLink(record.DisplayName, "Read", record.Controller, new { id = id }, null);
+            return htmlHelper.ActionLink(record.DisplayName, "Read", modelType.Name, new { id = id }, null);
         }
 
 
@@ -76,6 +91,17 @@ namespace XrmLite.Helpers
             var modelType = ((BaseController)htmlHelper.ViewContext.Controller).ModelType;
             string[] valueList = GetPickListValues(modelType.Name, fieldPrefix);
             return new SelectList(valueList, selectedValue);
+        }
+
+
+        public static Type GetTypeForField(this HtmlHelper htmlHelper, Type containerType, string fieldPrefix)
+        {
+
+            var field = containerType.GetProperties().FirstOrDefault(p =>  p.IsDefined(typeof(ForeignKeyAttribute), false) &&             
+                                             ((ForeignKeyAttribute[])p.GetCustomAttributes(typeof(ForeignKeyAttribute), false)).Any(a => a.Name == fieldPrefix));
+
+            if (field == null) throw new Exception("No table is found for this lookup.");
+            return field.PropertyType;
         }
 
         public static MultiSelectList GetMultiPickList(this HtmlHelper htmlHelper, string fieldPrefix, string selectedValue)

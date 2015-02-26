@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Contact>
+@{
+    Layout = "~/Views/Shared/_LookupLayout.cshtml";
+    string idField = Request.QueryString["idField"];
+    string textField = Request.QueryString["textField"];
+    string modalId = Request.QueryString["modalId"];
+}
+
+@(Html.Grid(Model.OrderBy(x => x.Id))
+    .Columns(columns =>
+    {
+        columns.Add(x => x.Id).Encoded(false)
+                    .Sanitized(false)
+                    .RenderValueAs(x => @<text><a href="javascript:void(0);" onclick="$('#@idField',window.parent.document).val('@x.Id'); $('#@textField',window.parent.document).val('@x.DisplayName'); parent.$('#@modalId').modal('hide');"> @x.Id </a></text>);
+        columns.Add(x => x.Company);
+        columns.Add(x => x.Title);
+        columns.Add(x => x.FirstName);
+        columns.Add(x => x.LastName);
+        columns.Add(x => x.DateOfBirth).Format("{0:MM/dd/yyyy}");
+        columns.Add(x => x.Email);
+        columns.Add(x => x.Phone);
+    })
+    .WithPaging(20)
+    .Sortable()
+    .Filterable()
+    .WithMultipleFilters()
+)

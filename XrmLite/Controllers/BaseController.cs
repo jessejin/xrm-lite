@@ -57,6 +57,11 @@ namespace XrmLite.Controllers
             return View(model);
         }
 
+        public virtual ActionResult Lookup()
+        {
+            return View(DB.Set(ModelType));
+        }
+
         public virtual ActionResult Read(int id)
         {
             return View(DB.Set(ModelType).Find(id));

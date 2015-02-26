@@ -1,7 +1,32 @@
-﻿@{
+﻿@model int?
+@{
     Layout = "_Layout.cshtml";
+
+    Type modelType = Html.GetTypeForField(ViewData.ModelMetadata.ContainerType,  ViewData.TemplateInfo.HtmlFieldPrefix);
 }
 <div class="input-group">
-    @Html.TextBoxFor(x => x, new { @class = "form-control", placeholder= "Type to Lookup" })
-    <div class="input-group-addon"><a class="glyphicon glyphicon-search"></a></div>
+    @Html.HiddenFor(x=>x)
+    @Html.TextBox("Text", Html.GetXrmDisplayName(modelType, Model) , new { @class = "form-control", placeholder= "Type to Lookup" })
+    <div class="input-group-addon"><a class="glyphicon glyphicon-search" data-toggle="modal" data-target="#@ViewData.TemplateInfo.GetFullHtmlFieldId("Modal")"></a></div>
+</div>
+
+
+
+<div class="modal fade" id="@ViewData.TemplateInfo.GetFullHtmlFieldId("Modal")" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Select</h4>
+            </div>
+            <div class="modal-body">
+                <iframe src="/@Html.GetXrmControllerName(modelType)/Lookup/?idField=@ViewData.TemplateInfo.GetFullHtmlFieldId("")&textField=@ViewData.TemplateInfo.GetFullHtmlFieldId("Text")&modalId=@ViewData.TemplateInfo.GetFullHtmlFieldId("Modal")"
+                        height="700" width="100%"
+                        frameborder="0" allowtransparency="true"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

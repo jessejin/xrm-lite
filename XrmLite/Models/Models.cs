@@ -43,15 +43,6 @@ namespace XrmLite.Models
             }
         }
 
-        public virtual string Controller
-        {
-            get
-            {
-                return "Controller not implemented";
-            }
-        }
-
-
 
         public BaseModel()
         {
@@ -72,13 +63,6 @@ namespace XrmLite.Models
             }
         }
 
-        public override string Controller
-        {
-            get
-            {
-                return "Contact";
-            }
-        }
 
         public override string DisplayName
         {

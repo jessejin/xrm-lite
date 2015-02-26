@@ -5,5 +5,5 @@
 
 
 @if (Model != null) {
-    @Html.XrmRecordLink(typeof(Contact), Model.Value)
+    @Html.XrmRecordLink( ViewData.ModelMetadata.ContainerType,  ViewData.TemplateInfo.HtmlFieldPrefix, Model.Value)
 }
