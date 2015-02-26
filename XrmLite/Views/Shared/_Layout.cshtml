@@ -30,11 +30,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
-                    <li>@Html.ActionLink("Pick List Value", "Index", "PickListValue")</li>
-                    <li>@Html.ActionLink("Users", "Index", "User")</li>
-                    
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Contact", "Index", "Contact", new { area = "SampleApp" }, null)</li>
+                    <li>@Html.ActionLink("Pick List Value", "Index", "PickListValue", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Users", "Index", "User", new { area = "" }, null)</li>
                 </ul>
             </div>
         </div>

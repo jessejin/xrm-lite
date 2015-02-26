@@ -7,11 +7,14 @@ using XrmLite.Models;
 
 namespace XrmLite.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : Controller
     {
 
-        public HomeController() : base(typeof(Contact)) { }
-
+        public ActionResult Index()
+        {
+            ViewBag.Message = "Your application description page.";
+            return View();
+        }
     
 
         public ActionResult About()

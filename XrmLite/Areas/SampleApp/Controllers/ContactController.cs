@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using XrmLite.Models;
+using XrmLite.SampleApp.Models;
 
-namespace XrmLite.Controllers
+namespace XrmLite.Areas.SampleApp.Controllers
 {
-    public class ContactController : BaseController
+    public class ContactController : XrmLite.Controllers.BaseController
     {
-
         public ContactController() : base(typeof(Contact)) { }
-
- 
-
-
     }
 }

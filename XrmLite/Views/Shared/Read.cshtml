@@ -13,8 +13,8 @@
         <div class="form-group xrm-header" >
             <div class="col-sm-2 xrm-header-label">@Model.ModelDisplayName</div>
             <div class="col-sm-2">
-                <a class="btn btn-primary" href="/@Html.Controller()/Edit/@Model.Id" >Edit</a>
-                <a class="btn btn-primary" href="/@Html.Controller()">Go Back</a>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Go Back", "Index", null, new { @class = "btn btn-primary" })
             </div>
         </div>
 

@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace XrmLite.Models
 {
-    public class DatabaseContext: IdentityDbContext<XrmUser>
+    public partial class DatabaseContext: IdentityDbContext<XrmUser>
     {
 
         public DatabaseContext()
@@ -27,11 +27,7 @@ namespace XrmLite.Models
                 .ToTable("Users");
         }
 
-        public DbSet<Contact> Contacts { get; set; }
         public DbSet<PickListValue> PickListValues { get; set; }
-
-
- 
 
     }
 }

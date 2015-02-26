@@ -69,12 +69,18 @@ namespace XrmLite.Helpers
             return modelType.Name;
         }
 
+        public static string GetXrmAreaName(this HtmlHelper htmlHelper, Type modelType)
+        {
+            string areaName = modelType.FullName.Split('.')[1];
+            if (areaName == "Models") areaName = "";
+            return areaName;
+        }
 
         public static MvcHtmlString XrmRecordLink(this HtmlHelper htmlHelper, Type containerType, string fieldPrefix, int id)
         {
             Type modelType = htmlHelper.GetTypeForField(containerType, fieldPrefix);
             BaseModel record = GetDBRecord(modelType, id);
-            return htmlHelper.ActionLink(record.DisplayName, "Read", modelType.Name, new { id = id }, null);
+            return htmlHelper.ActionLink(record.DisplayName, "Read", htmlHelper.GetXrmControllerName(modelType), new { area = htmlHelper.GetXrmAreaName(modelType), id = id }, null);
         }
 
 

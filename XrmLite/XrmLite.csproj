@@ -139,8 +139,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\SampleApp\Controllers\ContactController.cs" />
+    <Compile Include="Areas\SampleApp\Models\DatabaseContext.cs" />
+    <Compile Include="Areas\SampleApp\Models\Models.cs" />
+    <Compile Include="Areas\SampleApp\SampleAppAreaRegistration.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\PickListValueController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -215,6 +218,11 @@
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />
     <Content Include="Scripts\gridmvc.min.js" />
+    <Content Include="Areas\SampleApp\Views\web.config" />
+    <Content Include="Areas\SampleApp\Views\Contact\DisplayTemplates\Contact.cshtml" />
+    <Content Include="Areas\SampleApp\Views\Contact\EditorTemplates\Contact.cshtml" />
+    <Content Include="Areas\SampleApp\Views\Contact\Lookup.cshtml" />
+    <Content Include="Areas\SampleApp\Views\Contact\_List.cshtml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -255,12 +263,8 @@
     <Content Include="Views\Shared\EditorTemplates\Int32.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Lookup.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Lookup.cshtml" />
-    <Content Include="Views\Contact\_List.cshtml" />
-    <Content Include="Views\Contact\DisplayTemplates\Contact.cshtml" />
-    <Content Include="Views\Contact\EditorTemplates\Contact.cshtml" />
     <Content Include="Views\Shared\_LookupLayout.cshtml" />
-    <Content Include="Views\Shared\Search.cshtml" />
-    <Content Include="Views\Contact\Lookup.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -345,7 +349,9 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\SampleApp\Views\Shared\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

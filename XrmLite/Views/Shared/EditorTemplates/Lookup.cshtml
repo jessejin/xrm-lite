@@ -20,7 +20,13 @@
                 <h4 class="modal-title">Select</h4>
             </div>
             <div class="modal-body">
-                <iframe src="/@Html.GetXrmControllerName(modelType)/Lookup/?idField=@ViewData.TemplateInfo.GetFullHtmlFieldId("")&textField=@ViewData.TemplateInfo.GetFullHtmlFieldId("Text")&modalId=@ViewData.TemplateInfo.GetFullHtmlFieldId("Modal")"
+                
+                <iframe src="@Url.Action("Lookup", Html.GetXrmControllerName(modelType),
+                                                        new
+                                                        {area = Html.GetXrmAreaName(modelType), 
+                                                         idField = ViewData.TemplateInfo.GetFullHtmlFieldId("") ,
+                                                         textField = ViewData.TemplateInfo.GetFullHtmlFieldId("Text"),
+                                                         modalId = ViewData.TemplateInfo.GetFullHtmlFieldId("Modal")})"
                         height="700" width="100%"
                         frameborder="0" allowtransparency="true"></iframe>
             </div>
